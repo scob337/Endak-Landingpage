@@ -18,7 +18,7 @@ const NavBar = () => {
     <header className="text-gray-700 body-font border-b border-gray-200">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <Link to="/" className="flex title-font font-medium cursor-pointer items-center text-gray-900 mb-4 md:mb-0">
-    <img src="../../../../public/Screenshot_1.png" alt="logo" className="object-contain w-[100px] h-[100px] text-white p-2 rounded-full"/>
+    <img src="https://www2.0zz0.com/2025/02/02/22/609654213.png" alt="logo" className="object-contain w-[100px] h-[100px] text-white p-2 rounded-full"/>
         </Link>
         <nav className="md:ml-auto flex flex-wrap flex-row-reverse items-center text-base justify-center">
           {Links.map((link, index) => (
