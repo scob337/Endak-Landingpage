@@ -1,8 +1,9 @@
+import Content from "./Conent"
 
 const About = () => {
   return (
     <div>
-      About
+      <Content/>
     </div>
   )
 }
