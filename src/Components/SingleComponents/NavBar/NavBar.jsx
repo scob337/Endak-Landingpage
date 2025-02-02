@@ -22,7 +22,7 @@ const NavBar = () => {
         </Link>
         <nav className="md:ml-auto flex flex-wrap flex-row-reverse items-center text-base justify-center">
           {Links.map((link, index) => (
-            <Link
+            <Link to={link.href}
   key={index}
   className={`mr-5 relative inline-block overflow-hidden  transition duration-700 py-2
     after:content-[''] after:absolute after:bottom-0 after:left-500 after:w-full after:h-0.5 after:bg-indigo-500
