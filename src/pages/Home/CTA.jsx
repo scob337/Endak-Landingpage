@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 const CTA = () => {
   return (
@@ -7,8 +8,8 @@ const CTA = () => {
         className="lg:py-14 lg:px-20 p-10 rounded-2xl bg-gradient-to-r from-indigo-600 to-violet-600 flex items-center  justify-between flex-col lg:flex-row-reverse"
       >
 
-        <a
-          href="/contact"
+        <Link
+          to="/contact"
           className="flex items-center gap-2 bg-white rounded-full shadow-sm text-lg text-indigo-600 font-semibold py-4 px-8 transition-all duration-500"
           >ابدأ الان 
           <svg
@@ -24,10 +25,10 @@ const CTA = () => {
 
             />
           </svg>
-        </a>
+        </Link>
 
-        <a
-          href="/contact"
+        <Link
+          to="/contact"
           className="flex items-center gap-2 bg-white rounded-full shadow-sm text-lg text-indigo-600 font-semibold py-4 px-8 transition-all duration-500"
           > تعرف علي خدماتنا
           <svg
@@ -43,10 +44,10 @@ const CTA = () => {
 
             />
           </svg>
-        </a>
+        </Link>
 
-        <a
-          href="/contact"
+        <Link
+          to="/contact"
           className="flex items-center gap-2 bg-white rounded-full shadow-sm text-lg text-indigo-600 font-semibold py-4 px-8 transition-all duration-500"
           >تواصل معنا
           <svg
@@ -62,7 +63,7 @@ const CTA = () => {
 
             />
           </svg>
-        </a>
+        </Link>
 
       </div>
     </div>
