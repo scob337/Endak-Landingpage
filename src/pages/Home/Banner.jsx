@@ -16,7 +16,7 @@ const Banner = () => {
         </h1>
         <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
             <div className="rounded-md shadow">
-    <Button href="/about"> تواصل معنا</Button>
+    <Button href="/contact"> تواصل معنا</Button>
             </div>
 
         </div>

@@ -3,10 +3,10 @@ import { useLocation } from "react-router-dom";
 const Links = [
   { name: "الصفحة الرئيسية", href: "/" },
   { name: "من نحن", href: "/about" },
-  { name: "خدماتنا", href: "#" },
-  { name: "منتجاتنا وخدماتنا", href: "#" },
-  { name: " انضم الينا", href: "#" },
-  { name: " تواصل معنا ", href: "#" },
+  { name: "خدماتنا", href: "/services" },
+  { name: "منتجاتنا وخدماتنا", href: "/products" },
+  { name: " انضم الينا", href: "/join" },
+  { name: " تواصل معنا ", href: "/contact" },
 ];
 
 const NavBar = () => {

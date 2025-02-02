@@ -1,4 +1,5 @@
         import Button from "../../Components/SingleComponents/Button";
+import CTA from "./CTA";
     import ServicesCard from "./ServicesCard";
     const ServicesData =[
         {
@@ -60,7 +61,7 @@
                 </div>
                 </div>
             </section>
-
+            <CTA/>
             <section className="text-gray-700 body-font border-t border-gray-200" dir="rtl">
                 <div className="container px-5 py-10 mx-auto">
                 <div className="flex flex-col text-center w-full mb-20">
