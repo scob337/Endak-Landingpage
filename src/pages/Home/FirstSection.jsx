@@ -56,7 +56,7 @@ import CTA from "./CTA";
                     <img
                     className="object-cover object-center rounded"
                     alt="hero"
-                    src="../../assets/Banner2.png"
+                    src="../../public/Banner2.png"
                     />
                 </div>
                 </div>
