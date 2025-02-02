@@ -48,7 +48,7 @@
                     </p>
 
                     <div className="flex justify-center">
-                    <Button href="/about">إبدأ الأن</Button>
+                    <Button href="/about"> نبذة عنا </Button>
                     </div>
                 </div>
                 <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">

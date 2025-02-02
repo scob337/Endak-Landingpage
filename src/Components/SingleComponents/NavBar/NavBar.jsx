@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 
 const Links = [
   { name: "الصفحة الرئيسية", href: "/" },
-  { name: "من نحن", href: "#" },
+  { name: "من نحن", href: "/about" },
   { name: "خدماتنا", href: "#" },
   { name: "منتجاتنا وخدماتنا", href: "#" },
   { name: " انضم الينا", href: "#" },
