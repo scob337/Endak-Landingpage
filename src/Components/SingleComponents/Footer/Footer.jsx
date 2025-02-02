@@ -63,10 +63,13 @@
             </div>
         </footer>
         <a
-            className="rounded-full w-12 h-12 bg-gray-100 fixed bottom-0 right-0 flex items-center justify-center text-gray-800 mr-8 mb-8 shadow-sm border-gray-300 border"
-            target="_blank"
+            href="#"
+
+            className="rounded-full w-14 h-14  fixed bottom-0 right-0 flex items-center justify-center  mr-8 mb-8 "
         >
-            <img src="../../../assets/whatsapp.png" alt="icon" />
+            
+            <img src="https://endak.live/public/icon_422e74d54eda17a608c6111a307bea6a6c79699c.svg"  alt="icon" />
+
         </a>
         </>
     );
