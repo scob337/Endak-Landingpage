@@ -18,6 +18,7 @@ const ContentData =[
     }
 
 ]
+
     const Content = () => {
     return (
 <section className="" dir="rtl">

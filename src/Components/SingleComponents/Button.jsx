@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 const Button = ({href , children}) => {
   return (
+    <Link to={href}>
+
 <button
  className={`inline-flex
    text-[#00be3c]    border-1 border-[#00be3c] 
@@ -11,11 +13,10 @@ const Button = ({href , children}) => {
   text-lg
   cursor-pointer
   `}>
-    <Link to={href}>
       {children}
-    </Link>
     
     </button>
+    </Link>
       
   )
 }

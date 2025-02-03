@@ -3,10 +3,10 @@ import FirstSection from "./FirstSection"
 
 const Home = () => {
   return (
-    <>
+    <div className="overflow-hidden">
     <Banner/>
       <FirstSection/>
-    </>
+    </div>
   )
 }
 
