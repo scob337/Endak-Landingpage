@@ -1,20 +1,31 @@
 import PropTypes from 'prop-types';
-
-const ServicesCard = ({Title , Description , subTitle  }) => {
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+const ServicesCard = ({Title , Description , subTitle ,AOSDuration , DataAOS }) => {
+          useEffect(() => {
+            AOS.init(); 
+            }, []);
   return (
-<section className="bg-white dark:bg-gray-900 " dir="rtl">
+<section className="bg-white dark:bg-gray-900 
+
+hover:ring-1 hover:ring-[#00be3c] transition-all duration-700
+" dir="rtl"
+   data-aos={DataAOS}
+   data-aos-duration={AOSDuration}
+>
     <div className=" px-6 py-12 mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-1  ">
+        <div className="grid grid-cols-1  gap-8 ">
 
             <div>
-                <div className="inline-block p-3 text-white bg-blue-600 rounded-lg">
+                <div className="inline-block p-3 text-white bg-[#00be3c] rounded-lg">
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path    d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                 </div>
 
                 <div>
-                    <h1 className="text-xl font-semibold text-gray-700 dark:text-white">{Title}</h1>
+                    <h1 className="text-xl font-semibold text-[#00be3c] dark:text-white">{Title}</h1>
 
                     {subTitle && (
                         <p className="mt-2 text-gray-500 dark:text-gray-300">{subTitle}</p>
@@ -22,7 +33,7 @@ const ServicesCard = ({Title , Description , subTitle  }) => {
                 </div>  
                 {Description?.map((item, index) => (
               <div key={index} className="mt-4">
-                <h2 className="font-medium text-gray-700 dark:text-white">{item.Title}</h2>
+                <h2 className="font-medium text-[#00be3c] dark:text-white">{item.Title}</h2>
                 {item.Description?.map((desc, idx) => (
                   <p key={idx} className="mt-2 text-gray-500 dark:text-gray-300">{desc}</p>
                 ))}
@@ -40,5 +51,7 @@ ServicesCard.propTypes = {
   Description: PropTypes.string.isRequired,  
   Title: PropTypes.string.isRequired,   
   subTitle: PropTypes.string.isRequired,   
+  AOSDuration: PropTypes.string.isRequired,   
+  DataAOS: PropTypes.string.isRequired,
 };
 export default ServicesCard
