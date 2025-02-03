@@ -52,7 +52,7 @@
           ))}
         </div>
         <div className="mt-10" data-aos="fade-up" data-aos-duration="700">
-          <CTAServices />
+          <CTAServices >.تواصل معنا لمعرفة كيف يمكننا دعم أعمالك</CTAServices>
         </div>
       </div>
     );

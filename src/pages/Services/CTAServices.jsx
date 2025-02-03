@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
-
-const CTAServices = () => {
+import PropTypes from 'prop-types';
+const CTAServices = ({children}) => {
   return (
 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 mt-20 ">
 
@@ -8,7 +8,7 @@ const CTAServices = () => {
     className="relative isolate overflow-hidden  px-6 py-20 text-center sm:rounded-3xl bg-[#00be3cc5]">
 
     <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">
-   . تواصل معنا لمعرفة كيف يمكننا دعم أعمالك
+   {children}
     </h2>
 
 
@@ -40,4 +40,7 @@ const CTAServices = () => {
   )
 }
 
+CTAServices.propTypes = {
+  children: PropTypes.number.isRequired, 
+}
 export default CTAServices
