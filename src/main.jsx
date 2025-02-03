@@ -7,6 +7,9 @@ import MainLayOut from './Components/MainLayOut.jsx'
 import About from './pages/About/About.jsx'
 import Services from './pages/Services/Services.jsx'
 import Contact from './pages/ContactUs/Contact.jsx'
+import Products from './pages/Products/Product.jsx'
+import Join from './pages/Join/Join.jsx'
+import Partner from './pages/Partner/Partner.jsx'
 const router = createBrowserRouter([
   { path: '/', element: <MainLayOut /> ,
   children: [
@@ -14,6 +17,9 @@ const router = createBrowserRouter([
     { path: '/about', element: <About /> },
     { path: '/contact', element: <Contact /> },
     { path: '/services', element: <Services /> },
+    { path: '/products', element: <Products /> },
+    { path: '/join', element: <Join /> },
+    { path: '/partner', element: <Partner /> },
   ]
   },
 ])

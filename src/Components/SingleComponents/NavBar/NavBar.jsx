@@ -6,6 +6,7 @@ const Links = [
   { name: "خدماتنا", href: "/services" },
   { name: "منتجاتنا وخدماتنا", href: "/products" },
   { name: " انضم الينا", href: "/join" },
+  { name: "  انضم كشريك تجاري ", href: "/partner" },
   { name: " تواصل معنا ", href: "/contact" },
 ];
 
