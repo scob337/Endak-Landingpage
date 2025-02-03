@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 
 const ServicesCard = ({Title , Description , subTitle  }) => {
   return (
@@ -35,5 +36,9 @@ const ServicesCard = ({Title , Description , subTitle  }) => {
 </section>
   )
 }
-
+ServicesCard.propTypes = {
+  Description: PropTypes.string.isRequired,  
+  Title: PropTypes.string.isRequired,   
+  subTitle: PropTypes.string.isRequired,   
+};
 export default ServicesCard

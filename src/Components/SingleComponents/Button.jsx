@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom"
+import PropTypes from 'prop-types';
 
 const Button = ({href , children}) => {
   return (
 <button
  className={`inline-flex
-   text-white bg-indigo-500 border-0 
+   text-[#00be3c]    border-1 border-[#00be3c] 
    py-2 px-6 focus:outline-none
-  hover:bg-indigo-600 rounded 
+  hover:bg-[#00be3c] hover:text-white rounded 
   text-lg
   cursor-pointer
   `}>
@@ -18,5 +19,9 @@ const Button = ({href , children}) => {
       
   )
 }
-
+Button.propTypes = {
+  href: PropTypes.string.isRequired,  
+  children: PropTypes.node.isRequired,   
+   
+};
 export default Button

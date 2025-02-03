@@ -1,5 +1,7 @@
-        import Button from "../../Components/SingleComponents/Button";
+        import MainTitle from "../../Components/SharedComponents/MainTitle";
+import Button from "../../Components/SingleComponents/Button";
 import CTA from "./CTA";
+
     import ServicesCard from "./ServicesCard";
     const ServicesData =[
         {
@@ -22,10 +24,7 @@ import CTA from "./CTA";
             Title:"التوسع المستمر",
             Description:" نواصل توسيع نطاق خدماتنا لتغطية مناطق أوسع, مع خطط لتطوير تقنيات جديدة تلبي احتياجات السوف المتنامي."
             },
-            {
-            Title:"التوسع المستمر",
-            Description:" نواصل توسيع نطاق خدماتنا لتغطية مناطق أوسع, مع خطط لتطوير تقنيات جديدة تلبي احتياجات السوف المتنامي."
-            },
+
             
             
     ]
@@ -33,13 +32,13 @@ import CTA from "./CTA";
         return (
             <>
             <section className="text-gray-700 body-font ">
-                <div className="container mx-auto flex  px-5 py-10 md:flex-row-reverse flex-col items-center">
+                <div className="container mx-auto flex  px-5 py-10  md:flex-row-reverse flex-col-reverse items-center gap-5">
                 <div
                     className="
-                
+                gap-5
                 lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-end md:text-right mb-5 md:mb-0 items-center text-center"
                 >
-                    <h1 className="sm:text-3xl text-2xl  font-medium title-font text-gray-900 mb-4">
+                    <h1 className="sm:text-3xl text-2xl  font-medium title-font text-[#00be3c] mb-4">
                     حلول التوصيل الذكية والمبتكرة لشركتك
                     </h1>
                     <p className="mb-8 text-lg leading-relaxed text-gray-500">
@@ -65,9 +64,8 @@ import CTA from "./CTA";
             <section className="text-gray-700 body-font border-t border-gray-200" dir="rtl">
                 <div className="container px-5 py-10 mx-auto">
                 <div className="flex flex-col text-center w-full mb-20">
-                    <h2 className="text-medium text-indigo-500 font-medium title-font mb-1 p-5">
-                    تاريخ شركتنا ومايميزها عن المنافسين
-                    </h2>
+
+                    <MainTitle>تاريخ شركتنا ومايميزها عن المنافسين</MainTitle>
                     <p className=" text-right text-[18px] font-semibold title-font text-gray-900">
                     تأسست شركة عندك لخدمات الأعمال برؤية طموحة تهدف إلي تطوير قطاع التوصيل في المملكة العربية السعودية من خلال تقديم حلول تقنية ولوجستية مبتكرة. بدأت الشركة بفكرة بسيطة: تسهيل عمليات التوصيل وربط التجار بالعملاء بطريقة أكثر كفاءة وفعالية. ومع مرور الوقت نجحنا
                     في تطوير منصة متكاملة تدعم مختلف نماذج الأعمال 
@@ -78,13 +76,10 @@ import CTA from "./CTA";
                 </div>
 
                 <div className="flex flex-wrap m-4">
-                <h2 className="text-medium
-                flex justify-center w-full
-                text-indigo-500 font-medium title-font mb-5 py-5">
-                مايميزنا عن المنافسين
-                    </h2>
+
+                    <MainTitle> مايميزنا عن المنافسين</MainTitle>
             <ul className="flex flex-wrap -m-4" >
-            {ServicesData.map((service, index) => (
+                {ServicesData.map((service, index) => (
                         <ServicesCard 
                         key={index}
                         Index={index}
@@ -104,5 +99,6 @@ import CTA from "./CTA";
             </>
         );
         };
+
 
         export default FirstSection;

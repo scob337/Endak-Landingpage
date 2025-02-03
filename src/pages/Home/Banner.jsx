@@ -7,12 +7,12 @@ const Banner = () => {
 <div
     className="my-10 
     
-    mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28 flex gap-3 lg:flex-justify lg:flex flex-col lg:flex-row-reverse">
+    mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28 flex gap-3 lg:flex-justify lg:flex flex-col-reverse gap-5 lg:flex-row-reverse">
     <div className="text-right" dir="rtl">
         <h1 className="text-4xl tracking-tight font-extrabold text-gray-800 sm:text-5xl md:text-6xl">
             <span className="block xl:inline">حلول التوصيل الذكية والمبتكرة لشركتك</span>
             <br/>
-            <span className="block text-indigo-600 xl:inline">شركة عندك , الحل الأمثل</span>
+            <span className="block text-[#00be3c] xl:inline">شركة عندك , الحل الأمثل</span>
         </h1>
         <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
             <div className="rounded-md shadow">
