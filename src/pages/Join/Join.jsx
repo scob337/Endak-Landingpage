@@ -1,9 +1,18 @@
+import { useEffect } from "react";
 import MainTitle from "../../Components/SharedComponents/MainTitle"
 import Button from "../../Components/SingleComponents/Button"
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Join = () => {
+      useEffect(() => {
+        AOS.init();
+      }, []);
   return (
-<main  className="flex  w-full flex-col items-center justify-center text-center px-4  md:h-screen " dir="rtl">
+
+<main 
+          data-aos="fade-up"
+          data-aos-duration="800"
+className="flex  w-full flex-col items-center justify-center text-center px-4  md:h-screen " dir="rtl">
 
     <h1 className="mx-auto max-w-4xl font-display text-5xl font-bold tracking-normal text-slate-900 sm:text-7xl">
     انضم لفريق 
