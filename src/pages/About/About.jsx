@@ -2,7 +2,7 @@ import Content from "./Conent"
 
 const About = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
       <Content/>
     </div>
   )
