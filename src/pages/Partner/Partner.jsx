@@ -1,4 +1,3 @@
-  import MainTitle from "../../Components/SharedComponents/MainTitle";
   import FormInfo from "./FormInfo";
 
   const Partner = () => {
