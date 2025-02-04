@@ -66,7 +66,7 @@ const FirstSection = () => {
             </div>
           </div>
           <div className="md:w-1/2 flex justify-end left-section" >
-            <img
+            <img loading="lazy" 
 
             data-aos="fade-right"
             data-aos-duration="1000"

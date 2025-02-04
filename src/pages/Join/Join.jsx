@@ -3,6 +3,7 @@ import MainTitle from "../../Components/SharedComponents/MainTitle"
 import Button from "../../Components/SingleComponents/Button"
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Helmet } from "react-helmet";
 const Join = () => {
       useEffect(() => {
         AOS.init();
@@ -13,7 +14,11 @@ const Join = () => {
           data-aos="fade-up"
           data-aos-duration="800"
 className="flex  w-full flex-col items-center justify-center text-center px-4  md:h-screen " dir="rtl">
-
+                      <Helmet>
+        <title> منصة عندك ||  انضم الينا   </title>
+        <meta name="description" content=" شركة عندك لخدمات الأعمال برؤية طموحة تهدف إلى تطوير قطاع التوصيل في المملكة العربية السعودية من خلال تقديم حلول تقنية ولوجستية مبتكرة. بدأت الشركة بفكرة بسيطة: تسهيل عمليات التوصيل وربط التجار بالعملاء بطريقة أكثر كفاءة وفعالية. ومع مرور الوقت، نجحنا في تطوير منصة متكاملة تدعم مختلف نماذج الأعمال (B2B، B2B2C، B2C)، مما جعلنا في طليعة الشركات التي تقدم حلولًا لوجستية ذكية في السوق." />
+        <meta name="keywords" content="عندك, شركة عندك, خدمات عندك, منتجات عندك , توصيل سريع , شركة توصيل , شحن في السعودية" />
+      </Helmet>
     <h1 className="mx-auto max-w-4xl font-display text-5xl font-bold tracking-normal text-slate-900 sm:text-7xl">
     انضم لفريق 
         <span className="relative whitespace-nowrap text-[#00be3c]">

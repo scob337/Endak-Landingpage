@@ -1,4 +1,5 @@
-  import FormInfo from "./FormInfo";
+  import { Helmet } from "react-helmet";
+import FormInfo from "./FormInfo";
 
   const Partner = () => {
     return (
@@ -8,6 +9,11 @@
         className="overflow-hidden w-[100%]
   bg-white py-16 px-4 dark:bg-slate-900 sm:px-6 lg:px-8 lg:py-24 "
       >
+                              <Helmet>
+        <title> منصة عندك ||  كن شريكا معنا    </title>
+        <meta name="description" content=" شركة عندك لخدمات الأعمال برؤية طموحة تهدف إلى تطوير قطاع التوصيل في المملكة العربية السعودية من خلال تقديم حلول تقنية ولوجستية مبتكرة. بدأت الشركة بفكرة بسيطة: تسهيل عمليات التوصيل وربط التجار بالعملاء بطريقة أكثر كفاءة وفعالية. ومع مرور الوقت، نجحنا في تطوير منصة متكاملة تدعم مختلف نماذج الأعمال (B2B، B2B2C، B2C)، مما جعلنا في طليعة الشركات التي تقدم حلولًا لوجستية ذكية في السوق." />
+        <meta name="keywords" content="عندك, شركة عندك, خدمات عندك, منتجات عندك , توصيل سريع , شركة توصيل , شحن في السعودية" />
+      </Helmet>
         <div className="relative mx-auto lg:max-w-[65%] w-full">
         <FormInfo />
 
@@ -86,7 +92,7 @@
                         type="email"
                         name="email"
                         id="email"
-                        className="shadow-sm outline-0 bg-gray-50 border border-gray-300 outline-0 text-gray-900 sm:text-sm rounded-lg focus:ring-[#00be3c] focus:border-[#00be3c] block w-full p-2.5"
+                        className="shadow-sm outline-0 bg-gray-50 border border-gray-300  text-gray-900 sm:text-sm rounded-lg focus:ring-[#00be3c] focus:border-[#00be3c] block w-full p-2.5"
                         required
                       />
                     </div>
@@ -102,7 +108,7 @@
                         type="tel"
                         name="tel"
                         id="tel"
-                        className="shadow-sm outline-0 outline-0 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#00be3c] focus:border-[#00be3c] block w-full p-2.5"
+                        className="shadow-sm outline-0  bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#00be3c] focus:border-[#00be3c] block w-full p-2.5"
                         required
                       />
                     </div>
@@ -126,7 +132,7 @@
                     <div className="col-span-6 sm:col-span-3">
                       <label
                         htmlFor="brand"
-                        className="text-[12px] font-medium text-gray-900 block mb-2"
+                        className="text-[15px] font-medium text-gray-900 block mb-2"
                       >
                         رقم السجل التجاري / وثيقه العمل الحر
                       </label>

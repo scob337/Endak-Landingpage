@@ -12,7 +12,7 @@ const ProductCard = () => {
         className="bg-white rounded-lg shadow-lg overflow-hidden max-w-lg h-[32rem] lg:w-1/4
             md:w-1/3 sm:w-1/2 w-[90%]
         ">
-        <img
+        <img loading="lazy" 
           src={product.IMG}
           alt={product.title}
           className="w-full h-64 object-cover"

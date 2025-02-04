@@ -2,12 +2,18 @@ import { useEffect } from "react";
 import MainTitle from "../../Components/SharedComponents/MainTitle";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Helmet } from "react-helmet";
 const Contact = () => {
           useEffect(() => {
             AOS.init(); 
             }, []);
   return (
     <section className="text-gray-600 body-font relative">
+                <Helmet>
+        <title>  منصة عندك ||  تواصل معنا    </title>
+        <meta name="description" content=" شركة عندك لخدمات الأعمال برؤية طموحة تهدف إلى تطوير قطاع التوصيل في المملكة العربية السعودية من خلال تقديم حلول تقنية ولوجستية مبتكرة. بدأت الشركة بفكرة بسيطة: تسهيل عمليات التوصيل وربط التجار بالعملاء بطريقة أكثر كفاءة وفعالية. ومع مرور الوقت، نجحنا في تطوير منصة متكاملة تدعم مختلف نماذج الأعمال (B2B، B2B2C، B2C)، مما جعلنا في طليعة الشركات التي تقدم حلولًا لوجستية ذكية في السوق." />
+        <meta name="keywords" content="عندك, شركة عندك, خدمات عندك, منتجات عندك , توصيل سريع , شركة توصيل , شحن في السعودية" />
+      </Helmet>
         <div className="flex justify-center"><MainTitle> تواصل معنا</MainTitle></div>
       <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
         <div  

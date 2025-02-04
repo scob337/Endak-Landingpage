@@ -56,7 +56,7 @@ const ContentData =[
         </div>
       </div>
       <div aria-hidden="true" className="mt-10 lg:mt-0" data-aos="fade-left" data-aos-duration="1000">
-        <img width="600" height="600" src={IMG} alt="من نحن"/>
+        <img loading="lazy"  width="600" height="600" src={IMG} alt="من نحن"/>
       </div>
       
     </div>

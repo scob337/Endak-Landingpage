@@ -2,6 +2,7 @@
 const FormInfo = () => {
   return (
     <>
+    
           <svg
             className="absolute left-full translate-x-1/2 transform"
             width="404"
