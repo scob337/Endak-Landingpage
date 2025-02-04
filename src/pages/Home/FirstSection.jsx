@@ -47,8 +47,10 @@ const FirstSection = () => {
       <section className="text-gray-700 body-font ">
         <div className="container flex px-5 m-auto py-10 md:flex-row-reverse flex-col-reverse items-center gap-5">
           <div 
+
           data-aos="fade-left"
           data-aos-duration="1000"
+
           className="right-section gap-5 lg:flex-grow md:w-1/2 lg:pr-5 md:pr-5 flex flex-col md:items-end md:text-right mb-5 md:mb-0 items-start text-right">
             <h1 className="sm:text-3xl text-2xl font-medium title-font text-[#00be3c] mb-4">
               حلول التوصيل الذكية والمبتكرة لشركتك
@@ -65,8 +67,10 @@ const FirstSection = () => {
           </div>
           <div className="md:w-1/2 flex justify-end left-section" >
             <img
+
             data-aos="fade-right"
             data-aos-duration="1000"
+
               className="object-cover object-center rounded w-full"
               alt="hero"
               src="https://www2.0zz0.com/2025/02/02/22/149858510.png"
@@ -84,7 +88,7 @@ const FirstSection = () => {
 
       <section 
       data-aos="fade-up"
-      data-aos-duration="1000"
+      data-aos-duration="1500"
       className="text-gray-700 body-font border-t border-gray-200" dir="rtl">
         <div className="container px-5 py-10 mx-auto">
           <div className="flex flex-col text-center w-full mb-20">
