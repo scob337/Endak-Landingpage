@@ -16,7 +16,7 @@ const Join = () => {
 className="flex  w-full flex-col items-center justify-center text-center px-4  md:h-screen " dir="rtl">
                       <Helmet>
         <title> منصة عندك ||  انضم الينا   </title>
-        <meta name="description" content=" شركة عندك لخدمات الأعمال برؤية طموحة تهدف إلى تطوير قطاع التوصيل في المملكة العربية السعودية من خلال تقديم حلول تقنية ولوجستية مبتكرة. بدأت الشركة بفكرة بسيطة: تسهيل عمليات التوصيل وربط التجار بالعملاء بطريقة أكثر كفاءة وفعالية. ومع مرور الوقت، نجحنا في تطوير منصة متكاملة تدعم مختلف نماذج الأعمال (B2B، B2B2C، B2C)، مما جعلنا في طليعة الشركات التي تقدم حلولًا لوجستية ذكية في السوق." />
+        <meta name="description" content=" شركة عندك لخدمات الأعمال برؤية   وطموح     تهدف  إلى تطوير قطاع التوصيل في المملكة العربية السعودية من خلال تقديم حلول تقنية ولوجستية مبتكرة. بدأت الشركة بفكرة بسيطة: تسهيل عمليات التوصيل وربط التجار بالعملاء بطريقة أكثر كفاءة وفعالية. ومع مرور الوقت، نجحنا في تطوير منصة متكاملة تدعم مختلف نماذج الأعمال (B2B، B2B2C، B2C)، مما جعلنا في طليعة الشركات التي تقدم حلولًا لوجستية ذكية في السوق." />
         <meta name="keywords" content="عندك, شركة عندك, خدمات عندك, منتجات عندك , توصيل سريع , شركة توصيل , شحن في السعودية" />
       </Helmet>
     <h1 className="mx-auto max-w-4xl font-display text-5xl font-bold tracking-normal text-slate-900 sm:text-7xl">
@@ -35,12 +35,12 @@ className="flex  w-full flex-col items-center justify-center text-center px-4  m
     <div className="flex flex-wrap gap-5">
     <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
 
-<h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">مندوبو توصيل</h5>
+<h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">مندوب توصيل</h5>
 </div>
 
 <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
 
-<h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">متخصصو تسويق</h5>
+<h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">متخصص تسويق</h5>
 </div>
     </div>
     <Button href="/contact">قدم طلبك الآن!</Button>

@@ -1,4 +1,7 @@
-  import { useEffect } from "react";
+import B2c from '../../assets/images/b2c.png'
+import B2b2c from '../../assets/images/b2b2c.png'
+import B2b from '../../assets/images/b2b.png'
+import { useEffect } from "react";
   import ServicesCard from "./ServicesCard";
   import { b2bServices, b2b2cServices, b2cServices } from "./ServicesData";
   import AOS from "aos";
@@ -13,7 +16,7 @@ import { Helmet } from "react-helmet";
       <div className="container px-6 py-12 mx-auto">
                               <Helmet>
         <title> منصة عندك ||  خدماتنا  </title>
-        <meta name="description" content=" شركة عندك لخدمات الأعمال برؤية طموحة تهدف إلى تطوير قطاع التوصيل في المملكة العربية السعودية من خلال تقديم حلول تقنية ولوجستية مبتكرة. بدأت الشركة بفكرة بسيطة: تسهيل عمليات التوصيل وربط التجار بالعملاء بطريقة أكثر كفاءة وفعالية. ومع مرور الوقت، نجحنا في تطوير منصة متكاملة تدعم مختلف نماذج الأعمال (B2B، B2B2C، B2C)، مما جعلنا في طليعة الشركات التي تقدم حلولًا لوجستية ذكية في السوق." />
+        <meta name="description" content=" شركة عندك لخدمات الأعمال برؤية   وطموح     تهدف  إلى تطوير قطاع التوصيل في المملكة العربية السعودية من خلال تقديم حلول تقنية ولوجستية مبتكرة. بدأت الشركة بفكرة بسيطة: تسهيل عمليات التوصيل وربط التجار بالعملاء بطريقة أكثر كفاءة وفعالية. ومع مرور الوقت، نجحنا في تطوير منصة متكاملة تدعم مختلف نماذج الأعمال (B2B، B2B2C، B2C)، مما جعلنا في طليعة الشركات التي تقدم حلولًا لوجستية ذكية في السوق." />
         <meta name="keywords" content="عندك, شركة عندك, خدمات عندك, منتجات عندك , توصيل سريع , شركة توصيل , شحن في السعودية" />
       </Helmet>
         <h1
@@ -33,6 +36,9 @@ import { Helmet } from "react-helmet";
               Description={service.Description}
               AOSDuration="700"
               DataAOS="fade-up"
+              Icon={B2b}
+              
+
             />
           ))}
           {b2b2cServices.map((service, index) => (
@@ -43,6 +49,7 @@ import { Helmet } from "react-helmet";
               Description={service.Description}
               AOSDuration="1000"
               DataAOS="fade-up"
+              Icon={B2b2c}
             />
           ))}
 
@@ -54,6 +61,7 @@ import { Helmet } from "react-helmet";
               Description={service.Description}
               AOSDuration="1200"
               DataAOS="fade-up"
+              Icon={B2c}
             />
           ))}
         </div>
