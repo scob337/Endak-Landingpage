@@ -9,6 +9,7 @@ const Links = [
   { name: "منتجاتنا وخدماتنا", href: "/products" },
   { name: "انضم الينا", href: "/join" },
   { name: "انضم كشريك تجاري", href: "/partner" },
+  { name: " تقديم طلب استثمار", href: "/investment-request" },
   { name: "تواصل معنا", href: "/contact" },
 ];
 
@@ -31,7 +32,9 @@ const NavBar = () => {
           type="button"
           className="inline-flex
           cursor-pointer
-          items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          items-center p-2 w-10 h-10 justify-center 
+          text-sm text-gray-500 rounded-lg min-lg:hidden
+           hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           aria-controls="navbar-sticky"
           aria-expanded={isMenuOpen ? "true" : "false"}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -42,7 +45,6 @@ const NavBar = () => {
           </svg>
         </button>
         
-        {/* القائمة في الشاشات الصغيرة والمتوسطة */}
         <div
           className={`${
             isMenuOpen ? 'block' : 'hidden'
@@ -68,8 +70,7 @@ const NavBar = () => {
           </ul>
         </div>
         
-        {/* القائمة في الشاشات الكبيرة */}
-        <div className="hidden md:flex w-auto md:order-1">
+        <div className="hidden lg:flex w-auto md:order-1">
           <ul className="flex gap-5 flex-row-reverse">
             {Links.map((link, index) => (
               <li key={index}>
