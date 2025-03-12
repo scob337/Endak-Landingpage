@@ -1,6 +1,6 @@
 import axios from "axios";
-const Token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDBjYzYxZmJjODJkMGIwZjQ4MWM5MyIsImlhdCI6MTc0MTczNzE5NCwiZXhwIjoxNzczMjczMTk0fQ.u2oiLOajJEOrRBcaFVYxsm8b5Wbc6iyhRUdbZBIlbVU";
+import Cookies from "js-cookie";
+
 const axiosInstance = axios.create({
   baseURL: "https://api.endak.co/api",
   headers: {
@@ -8,22 +8,26 @@ const axiosInstance = axios.create({
   },
 });
 
-// Add a request interceptor
+// ✅ إضافة التوكن تلقائيًا من الكوكيز لكل الطلبات
 axiosInstance.interceptors.request.use(
   (config) => {
-    config.headers.Authorization = `Bearer ${Token}`;
+    const token = Cookies.get("authToken"); // استرجاع التوكن من الكوكيز
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
+// ✅ التعامل مع الأخطاء في الاستجابة
 axiosInstance.interceptors.response.use(
-  (response) => {
-    return response;
-  },
+  (response) => response,
   (error) => {
+    if (error.response && error.response.status === 401) {
+      console.error("Unauthorized! Redirecting to login...");
+      // ممكن تضيف هنا كود لحذف التوكن وتوجيه المستخدم لصفحة تسجيل الدخول
+    }
     return Promise.reject(error);
   }
 );

@@ -10,7 +10,7 @@ const StockStatus = () => {
     totalShares: 0,
     soldShares: 0,
     reservedShares: 0,
-    remainingShares: 0,
+    availableShares: 0,
   });
 
   const [loading, setLoading] = useState(true);
@@ -24,7 +24,7 @@ const StockStatus = () => {
         totalShares: data.totalShares,
         soldShares: data.soldShares,
         reservedShares: data.reservedShares,
-        remainingShares: data.remainingShares,
+        availableShares: data.availableShares,
       });
 
       setLoading(false);
@@ -92,7 +92,7 @@ const StockStatus = () => {
           <h3 className="text-gray-600 text-lg font-medium">الأسهم المتبقية</h3>
           <p className="text-3xl font-bold text-green-500 mt-2">
             <CountUp
-              end={stockData.remainingShares}
+              end={stockData.availableShares}
               duration={3}
               separator=","
             />
@@ -101,7 +101,7 @@ const StockStatus = () => {
       </div>
 
       {/* ملاحظة */}
-      <div dir="ltr" className="text-center text-gray-600 mt-6">
+      <div dir="rtl" className="text-center text-gray-600 mt-6">
         📉{" "}
         {(
           ((stockData.soldShares + stockData.reservedShares) /
@@ -111,7 +111,7 @@ const StockStatus = () => {
         % من الأسهم تم بيعها أو حجزها!
         <br />⏳ تبقى{" "}
         <CountUp
-          end={stockData.remainingShares}
+          end={stockData.availableShares}
           duration={3}
           separator=","
         />{" "}

@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Header from "./Header";
+import Header from "../Header";
 import FilterSection from "./FilterSection";
 import OrdersTable from "./OrdersTable";
 import ReusablePopup from "./PopupDetails";
 import Pagination from "./Pagination";
 import EditOrderForm from "./EditOrderForm";
 import OrderDetails from "./OrderDetailsModal";
-import axiosInstance from "../../URL/axiosConfig";
-import { Investment } from "../../URL/URL";
 import { PropTypes } from "prop-types";
+import axiosInstance from "./../../../URL/axiosConfig";
+import { Investment } from "../../../URL/URL";
+import { Navigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const Dashboard = ({ toggleSidebar }) => {
   // State Management
@@ -116,7 +118,10 @@ const Dashboard = ({ toggleSidebar }) => {
     indexOfFirstOrder,
     indexOfLastOrder
   );
-
+  const token = Cookies.get("authToken");
+  if (!token) {
+    return <Navigate to="/login" replace />;
+  }
   return (
     <div
       dir="rtl"

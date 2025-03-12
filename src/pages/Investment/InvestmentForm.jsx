@@ -10,6 +10,7 @@ import RadioField from "./RadioField";
 import StockStatus from "./StockStatus";
 import WhyInvest from "./WhyInvestment";
 import { useState } from "react"; // Import useState
+import { Helmet } from "react-helmet";
 
 const InvestmentForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false); // State to track form submission
@@ -69,6 +70,14 @@ const InvestmentForm = () => {
       dir="rtl"
       className="min-h-screen bg-gray-100 flex items-center flex-col justify-center p-4"
     >
+      <Helmet>
+        <title>استثمر في عندك | فرص استثمارية في قطاع الخدمات اللوجستية</title>
+        <meta
+          name="description"
+          content="استثمر مع شركة عندك وكن جزءًا من مستقبل التوصيل الذكي. اغتنم الفرصة للانضمام إلى مشروع واعد بعوائد استثمارية قوية في سوق سريع النمو"
+        />
+      </Helmet>
+
       <WhyInvest />
       <StockStatus />
       <div className="bg-white rounded-lg shadow-lg w-full max-w-2xl p-8 relative">

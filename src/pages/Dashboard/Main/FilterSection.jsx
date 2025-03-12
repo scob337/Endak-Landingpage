@@ -17,7 +17,7 @@ const FilterSection = ({ filters, onFilterChange }) => {
           onClick={() => handleFilterChange(filter.value)}
           className={`px-2 lg:px-4 text-center  py-2 rounded ${
             activeFilter === filter.value
-              ? "bg-blue-500 text-white"
+              ? "bg-green-500 text-white"
               : "bg-white"
           }`}
         >

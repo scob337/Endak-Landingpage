@@ -1,7 +1,8 @@
-import { PropTypes } from 'prop-types';
-const Header = ({ toggleSidebar }) => {
+import { useSidebar } from '../../Context/SidebarContext';
+const Header = () => {
+  const { toggleSidebar } = useSidebar();
   return (
-    <div className="bg-blue-500 text-white p-4 flex justify-between items-center">
+    <div className="bg-green-500  text-white p-4 flex justify-between items-center">
       <h1 className="text-2xl font-bold">إدارة الطلبات</h1>
       <button
         onClick={toggleSidebar}
@@ -27,7 +28,3 @@ const Header = ({ toggleSidebar }) => {
 };
 
 export default Header;
-
-Header.propTypes = {
-  toggleSidebar: PropTypes.func.isRequired,
-};

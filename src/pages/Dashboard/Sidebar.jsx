@@ -1,23 +1,24 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { FaChevronDown, FaChevronUp, FaTimes } from "react-icons/fa"; // تمت إضافة FaTimes
+import { FaTimes } from "react-icons/fa"; // تمت إضافة FaTimes
 import { FaHome, FaCalendar } from "react-icons/fa";
 import Logo from "../../assets/images/Logo.png";
+import { useSidebar } from "../../Context/SidebarContext";
+import { NavLink } from "react-router-dom";
 
 // روابط الـ Sidebar
 const sidebarLinks = [
   {
     icon: FaHome,
     text: "ادارة الطلبات",
-    link: "#",
+    link: "/dashboard",
   },
   {
     icon: FaCalendar,
     text: "الملف الشخصي",
-    link: "#",
+    link: "/dashboard/profile",
   },
 ];
-
 // مكون الرابط الفرعي
 const SidebarLink = ({ link, isHovered }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,27 +44,9 @@ const SidebarLink = ({ link, isHovered }) => {
             isHovered ? "opacity-100" : "opacity-0"
           } transition-opacity duration-300`}
         >
-          {link.text}
+          <NavLink to={link.link}>{link.text}</NavLink>
         </span>
-        {link.subLinks && (
-          <span className="ms-auto">
-            {isOpen ? (
-              <FaChevronUp className="size-4" />
-            ) : (
-              <FaChevronDown className="size-4" />
-            )}
-          </span>
-        )}
       </button>
-
-      {/* عرض الروابط الفرعية إذا كانت موجودة */}
-      {link.subLinks && isOpen && (
-        <ul className="pt-1 ps-7 space-y-1">
-          {link.subLinks.map((subLink, index) => (
-            <SidebarLink key={index} link={subLink} isHovered={isHovered} />
-          ))}
-        </ul>
-      )}
     </li>
   );
 };
@@ -80,23 +63,22 @@ SidebarLink.propTypes = {
 };
 
 // مكون الـ Sidebar الرئيسي
-const Sidebar = ({ onClose }) => {
+const Sidebar = () => {
   const [isHovered, setIsHovered] = useState(false);
-
+  const { toggleSidebar } = useSidebar(); // استخدام Context
   return (
     <div
-      className={`fixed  top-0 left-0 h-screen z-50 bg-white border-e border-gray-200 dark:bg-neutral-800 dark:border-neutral-700
+      className={`fixed  top-0 left-0 h-full z-50 bg-white  border-gray-200 dark:bg-neutral-800 dark:border-neutral-700
       ${isHovered ? "w-54" : "w-16"} 
       transition-all duration-300 ease-in-out`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative flex flex-col h-full max-h-full ">
-        {/* الرأس */}
+      <div className="relative flex flex-col h-screen overflow-hidden max-h-full ">
         <header className="p-4 flex items-center justify-between">
-          <a
+          <NavLink
             className="flex items-center justify-center focus:outline-hidden focus:opacity-80"
-            href="#"
+            to="/dashboard"
             aria-label="Brand"
           >
             <img
@@ -106,10 +88,10 @@ const Sidebar = ({ onClose }) => {
                 isHovered ? "w-24 h-24" : "w-20 h-20"
               }`}
             />
-          </a>
+          </NavLink>
           {/* زر إغلاق الـ Sidebar */}
           <button
-            onClick={onClose}
+            onClick={toggleSidebar}
             className="p-2 text-gray-800 hover:text-red-500 focus:outline-none lg:hidden"
           >
             <FaTimes className="size-5" />
