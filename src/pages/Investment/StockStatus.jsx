@@ -39,11 +39,10 @@ const StockStatus = () => {
     fetchStockData();
   }, []);
 
-  // إذا كانت البيانات قيد التحميل
   if (loading) {
     return (
       <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <h2 className="text-2xl font-bold text-[#4CAF50] mb-6">
+        <h2 dir="ltr" className="text-2xl font-bold text-[#4CAF50] mb-6">
           📊 حالة الأسهم المتاحة للاستثمار
         </h2>
         <p className="text-center text-gray-600">جاري تحميل البيانات...</p>
@@ -53,7 +52,7 @@ const StockStatus = () => {
 
   return (
     <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-      <h2 className="text-2xl font-bold text-[#4CAF50] mb-6">
+      <h2 dir="ltr" className="text-2xl font-bold text-[#4CAF50] mb-6">
         📊 حالة الأسهم المتاحة للاستثمار
       </h2>
 
@@ -102,7 +101,7 @@ const StockStatus = () => {
       </div>
 
       {/* ملاحظة */}
-      <div className="text-center text-gray-600 mt-6">
+      <div dir="ltr" className="text-center text-gray-600 mt-6">
         📉{" "}
         {(
           ((stockData.soldShares + stockData.reservedShares) /

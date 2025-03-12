@@ -10,9 +10,7 @@ const FilterSection = ({ filters, onFilterChange }) => {
   };
 
   return (
-    <div
-    dir="rtl"
-      className="flex gap-2 w-full p-4 bg-gray-100 justify-center">
+    <div dir="rtl" className="flex gap-2 w-full p-4 bg-gray-100 justify-center">
       {filters.map((filter) => (
         <button
           key={filter.value}
@@ -44,7 +42,7 @@ FilterSection.defaultProps = {
   filters: [
     { value: "all", label: "الكل" },
     { value: "pending", label: "قيد المراجعة" },
-    { value: "accepted", label: "مقبول" },
+    { value: "approved", label: "مقبول" },
     { value: "rejected", label: "مرفوض" },
   ],
   onFilterChange: () => {},

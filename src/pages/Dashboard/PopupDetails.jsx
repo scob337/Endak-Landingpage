@@ -6,7 +6,9 @@ const ReusablePopup = ({ isOpen, onClose, title, children }) => {
   return (
     <div
       dir="rtl"
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black bg-opacity-50
+      z-50
+      flex items-center justify-center p-4"
     >
       <div className="bg-white rounded-lg shadow-lg w-full max-w-md md:max-w-lg lg:max-w-xl overflow-y-auto max-h-[90vh]">
         <div className="p-6">

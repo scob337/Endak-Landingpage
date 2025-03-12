@@ -33,8 +33,7 @@ const InvestmentForm = () => {
           ...values,
           investmentAmount: Number(values.investmentAmount), // تحويل القيمة إلى رقم
         });
-
-        console.log("API response:", response.data);
+        console.log(response);
         toast.success("تم إرسال طلبك بنجاح!", {
           position: "bottom-right",
           autoClose: 3000,
@@ -43,8 +42,6 @@ const InvestmentForm = () => {
         // مسح الحقول بعد الإرسال الناجح
         resetForm();
       } catch (error) {
-        console.error("Error:", error);
-
         if (error.response) {
           toast.error(`فشل في إرسال الطلب: ${error.response.data.message}`, {
             position: "bottom-right",
@@ -106,6 +103,7 @@ const InvestmentForm = () => {
             touched={formik.touched.fullName}
             error={formik.errors.fullName}
             required
+            disabled={isSubmitting} // تعطيل الحقل أثناء التحميل
           />
 
           <InputField
@@ -118,6 +116,7 @@ const InvestmentForm = () => {
             touched={formik.touched.email}
             error={formik.errors.email}
             required
+            disabled={isSubmitting} // تعطيل الحقل أثناء التحميل
           />
 
           <InputField
@@ -130,6 +129,7 @@ const InvestmentForm = () => {
             touched={formik.touched.phone}
             error={formik.errors.phone}
             required
+            disabled={isSubmitting} // تعطيل الحقل أثناء التحميل
           />
 
           <SelectField
@@ -149,6 +149,7 @@ const InvestmentForm = () => {
               },
               { value: "أكثر من 100,000 ريال", label: "أكثر من 100,000 ريال" },
             ]}
+            disabled={isSubmitting} // تعطيل الحقل أثناء التحميل
           />
 
           <RadioField
@@ -169,6 +170,7 @@ const InvestmentForm = () => {
               { value: "نعم", label: "نعم" },
               { value: "لا", label: "لا" },
             ]}
+            disabled={isSubmitting} // تعطيل الحقل أثناء التحميل
           />
 
           <SelectField
@@ -186,6 +188,7 @@ const InvestmentForm = () => {
               { value: "التجارة الإلكترونية", label: "التجارة الإلكترونية" },
               { value: "أخرى", label: "أخرى" },
             ]}
+            disabled={isSubmitting} // تعطيل الحقل أثناء التحميل
           />
 
           <InputField
@@ -200,6 +203,7 @@ const InvestmentForm = () => {
             touched={formik.touched.investmentAmount}
             error={formik.errors.investmentAmount}
             required
+            disabled={isSubmitting} // تعطيل الحقل أثناء التحميل
           />
 
           <div className="relative mb-6">
@@ -212,6 +216,7 @@ const InvestmentForm = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               className="block w-full h-24 px-5 py-2.5 leading-7 text-base font-normal shadow-xs text-gray-900 bg-transparent border border-gray-300 rounded-lg placeholder-gray-400 focus:outline-none"
+              disabled={isSubmitting} // تعطيل الحقل أثناء التحميل
             />
           </div>
 

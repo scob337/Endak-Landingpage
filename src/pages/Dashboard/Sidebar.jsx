@@ -1,9 +1,10 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { FaChevronDown, FaChevronUp, FaTimes } from "react-icons/fa"; // تمت إضافة FaTimes
 import { FaHome, FaCalendar } from "react-icons/fa";
 import Logo from "../../assets/images/Logo.png";
 
+// روابط الـ Sidebar
 const sidebarLinks = [
   {
     icon: FaHome,
@@ -15,9 +16,9 @@ const sidebarLinks = [
     text: "الملف الشخصي",
     link: "#",
   },
-
 ];
 
+// مكون الرابط الفرعي
 const SidebarLink = ({ link, isHovered }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -55,6 +56,7 @@ const SidebarLink = ({ link, isHovered }) => {
         )}
       </button>
 
+      {/* عرض الروابط الفرعية إذا كانت موجودة */}
       {link.subLinks && isOpen && (
         <ul className="pt-1 ps-7 space-y-1">
           {link.subLinks.map((subLink, index) => (
@@ -66,6 +68,7 @@ const SidebarLink = ({ link, isHovered }) => {
   );
 };
 
+// التحقق من أنواع الخصائص
 SidebarLink.propTypes = {
   link: PropTypes.shape({
     icon: PropTypes.elementType.isRequired,
@@ -76,20 +79,21 @@ SidebarLink.propTypes = {
   isHovered: PropTypes.bool.isRequired,
 };
 
-const Sidebar = () => {
+// مكون الـ Sidebar الرئيسي
+const Sidebar = ({ onClose }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
-      className={`fixed top-0 left-0 h-screen z-60 bg-white border-e border-gray-200 dark:bg-neutral-800 dark:border-neutral-700
-      ${isHovered ? "w-64" : "w-16"} 
+      className={`fixed  top-0 left-0 h-screen z-50 bg-white border-e border-gray-200 dark:bg-neutral-800 dark:border-neutral-700
+      ${isHovered ? "w-54" : "w-16"} 
       transition-all duration-300 ease-in-out`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative flex flex-col h-full max-h-full">
-        {/* Header */}
-        <header className="p-4 flex items-center justify-center">
+      <div className="relative flex flex-col h-full max-h-full ">
+        {/* الرأس */}
+        <header className="p-4 flex items-center justify-between">
           <a
             className="flex items-center justify-center focus:outline-hidden focus:opacity-80"
             href="#"
@@ -103,9 +107,16 @@ const Sidebar = () => {
               }`}
             />
           </a>
+          {/* زر إغلاق الـ Sidebar */}
+          <button
+            onClick={onClose}
+            className="p-2 text-gray-800 hover:text-red-500 focus:outline-none lg:hidden"
+          >
+            <FaTimes className="size-5" />
+          </button>
         </header>
 
-        {/* Body */}
+        {/* القائمة */}
         <nav className="h-full overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
           <ul className="space-y-1">
             {sidebarLinks.map((link, index) => (
@@ -116,6 +127,10 @@ const Sidebar = () => {
       </div>
     </div>
   );
+};
+
+Sidebar.propTypes = {
+  onClose: PropTypes.func.isRequired,
 };
 
 export default Sidebar;

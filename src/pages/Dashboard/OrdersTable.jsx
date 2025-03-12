@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const OrdersTable = ({ orders, onEditOrder, onViewDetails }) => {
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto h-full flex-grow">
       <table className="min-w-full bg-white">
         <thead className="sticky top-0 bg-white">
           <tr>
@@ -26,7 +26,7 @@ const OrdersTable = ({ orders, onEditOrder, onViewDetails }) => {
           {orders.map((order) => (
             <tr key={order.id} className="hover:bg-gray-50">
               <td className="py-3 px-4 border-b text-start whitespace-nowrap">
-                {order.id}
+                {order.code}
               </td>
               <td
                 className="py-3 px-4 border-b text-center cursor-pointer text-blue-500 hover:underline whitespace-nowrap"
@@ -41,14 +41,14 @@ const OrdersTable = ({ orders, onEditOrder, onViewDetails }) => {
                   className={`px-5 py-2 rounded-4xl text-[18px] ${
                     order.status === "pending"
                       ? "bg-yellow-100 text-yellow-800"
-                      : order.status === "accepted"
+                      : order.status === "approved"
                       ? "bg-green-100 text-green-800"
                       : "bg-red-100 text-red-800"
                   }`}
                 >
                   {order.status === "pending"
                     ? "قيد المراجعة"
-                    : order.status === "accepted"
+                    : order.status === "approved"
                     ? "مقبول"
                     : "مرفوض"}
                 </span>

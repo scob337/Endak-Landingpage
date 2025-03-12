@@ -4,7 +4,7 @@ const OrderDetails = ({ order }) => {
   return (
     <div className="space-y-4 text-start min-w-[300px] max-w-[400px] p-4 bg-white rounded-lg shadow-md">
       <p>
-        <strong>الاسم:</strong> {order?.name || "غير متوفر"}
+        <strong>الاسم:</strong> {order?.fullName || "غير متوفر"}
       </p>
       <p>
         <strong>البريد الإلكتروني:</strong> {order?.email || "غير متوفر"}
@@ -14,16 +14,14 @@ const OrderDetails = ({ order }) => {
       </p>
       <p>
         <strong>مبلغ الاستثمار المتوقع:</strong>{" "}
-        {order?.investmentAmount
-          ? `${order.investmentAmount} جنيه`
-          : "غير متوفر"}
+        {order?.investmentAmount ? `${order.investmentAmount} ﷼` : "غير متوفر"}
       </p>
       <p>
         <strong>هل لديه استثمارات سابقة؟:</strong>{" "}
         {order?.hasPreviousInvestments ? "نعم" : "لا"}
       </p>
       <p className="break-words">
-        <strong>أي ملاحظات إضافية:</strong> {order?.notes || "لا توجد ملاحظات."}
+        <strong>أي ملاحظات إضافية:</strong> {order?.note || "لا توجد ملاحظات."}
       </p>
     </div>
   );
@@ -32,13 +30,13 @@ const OrderDetails = ({ order }) => {
 OrderDetails.propTypes = {
   order: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
+    fullName: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     phone: PropTypes.string.isRequired,
     investmentAmount: PropTypes.number.isRequired,
     hasPreviousInvestments: PropTypes.bool.isRequired,
     status: PropTypes.oneOf(["pending", "accepted", "rejected"]).isRequired,
-    notes: PropTypes.string,
+    note: PropTypes.string,
   }).isRequired,
 };
 

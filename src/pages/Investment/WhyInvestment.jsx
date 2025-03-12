@@ -1,7 +1,7 @@
 
 const WhyInvest = () => {
   return (
-    <div className="bg-white rounded-lg shadow-lg p-8 mb-8 text-start" dir="rtl">
+    <div className="bg-white rounded-lg shadow-lg p-8 mb-8 text-start w-[90%]" dir="rtl">
       {/* العنوان الرئيسي */}
       <h1 className="text-3xl font-bold text-[#4CAF50] mb-4">
          استثمر في “عندك” وكن جزءًا من مستقبل الخدمات اللوجستية في السعودية!
