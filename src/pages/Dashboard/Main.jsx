@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react"; // أضفنا useEffect
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "./Header";
@@ -8,57 +8,37 @@ import ReusablePopup from "./PopupDetails";
 import Pagination from "./Pagination";
 import EditOrderForm from "./EditOrderForm";
 import OrderDetails from "./OrderDetailsModal";
+import axiosInstance from "../../URL/axiosConfig";
+import { Investment } from "../../URL/URL";
 
 const Dashboard = () => {
-  const [orders, setOrders] = useState([
-    {
-      id: 1,
-      name: "محمد علي احمد محمد عبدالرازق أحمد",
-      email: "mohamed.ahmed@example.com",
-      phone: "01234567890",
-      investmentAmount: 50000,
-      hasPreviousInvestments: true,
-      status: "pending",
-      notes: "الطلب قيد المراجعة",
-    },
-    {
-      id: 2,
-      name: "علي محمود",
-      email: "ali.mahmoud@example.com",
-      phone: "01112223344",
-      investmentAmount: 100000,
-      hasPreviousInvestments: false,
-      status: "accepted",
-      notes: "الطلب مقبول",
-    },
-    {
-      id: 3,
-      name: "خالد سعيد",
-      email: "khaled.saeed@example.com",
-      phone: "01005556677",
-      investmentAmount: 75000,
-      hasPreviousInvestments: true,
-      status: "rejected",
-      notes:
-        "loremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremlorem",
-    },
-    ...Array.from({ length: 20 }, (_, i) => ({
-      id: i + 4,
-      name: `مستثمر ${i + 4}`,
-      email: `investor${i + 4}@example.com`,
-      phone: `010000000${i + 4}`,
-      investmentAmount: (i + 1) * 10000,
-      hasPreviousInvestments: i % 2 === 0 ? true : false,
-      status: i % 3 === 0 ? "pending" : i % 3 === 1 ? "accepted" : "rejected",
-      notes: `ملاحظات ${i + 4}`,
-    })),
-  ]);
-  const [filteredOrders, setFilteredOrders] = useState(orders);
-  const [selectedOrder, setSelectedOrder] = useState(null);
-  const [isEditMode, setIsEditMode] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [searchQuery, setSearchQuery] = useState("");
-  const ordersPerPage = 7; // عدد الطلبات في كل صفحة
+  const [orders, setOrders] = useState([]); 
+  const [filteredOrders, setFilteredOrders] = useState([]); 
+  const [selectedOrder, setSelectedOrder] = useState(null); 
+  const [isEditMode, setIsEditMode] = useState(false); 
+  const [currentPage, setCurrentPage] = useState(1); 
+  const [searchQuery, setSearchQuery] = useState(""); 
+  const [loading, setLoading] = useState(true); 
+  const ordersPerPage = 7; 
+
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axiosInstance.get(Investment); 
+        const data = response.data.data; 
+        setOrders(data);
+        setFilteredOrders(data); 
+      } catch (error) {
+        console.error("Error fetching orders:", error);
+        toast.error("فشل في جلب البيانات. يرجى المحاولة مرة أخرى."); // عرض رسالة خطأ
+      } finally {
+        setLoading(false); // إيقاف حالة التحميل
+      }
+    };
+
+    fetchData(); // استدعاء الدالة لجلب البيانات
+  }, []); // سيتم تشغيلها مرة واحدة عند تحميل المكون
 
   // فلترة الطلبات حسب البحث
   const handleSearch = (query) => {
@@ -71,6 +51,7 @@ const Dashboard = () => {
     setCurrentPage(1); // نرجع للصفحة الأولى عند البحث
   };
 
+  // فلترة الطلبات حسب الحالة
   const handleFilterChange = (status) => {
     if (status === "all") {
       setFilteredOrders(orders);
@@ -80,29 +61,47 @@ const Dashboard = () => {
     setCurrentPage(1); // نرجع للصفحة الأولى عند التصفية
   };
 
+  // عرض تفاصيل الطلب
   const handleViewDetails = (order) => {
     setSelectedOrder(order);
     setIsEditMode(false); // وضع العرض العادي (ليس التعديل)
   };
 
+  // تعديل الطلب
   const handleEditOrder = (order) => {
     setSelectedOrder(order);
     setIsEditMode(true); // وضع التعديل
   };
 
+  // إغلاق النافذة المنبثقة
   const handleClosePopup = () => {
     setSelectedOrder(null);
   };
 
-  const handleSaveOrder = (updatedOrder) => {
-    const updatedOrders = orders.map((order) =>
-      order.id === updatedOrder.id ? updatedOrder : order
-    );
-    setOrders(updatedOrders);
-    setFilteredOrders(updatedOrders);
-    toast.success("تم التعديل بنجاح!"); // عرض رسالة نجاح
+  // حفظ التعديلات على الطلب
+  const handleSaveOrder = async (updatedOrder) => {
+    try {
+      // إرسال التعديلات إلى الـ API
+      const response = await axiosInstance.put(
+        `/orders/${updatedOrder.id}`,
+        updatedOrder
+      );
+
+      // تحديث الحالة المحلية بالبيانات الجديدة
+      const updatedOrders = orders.map((order) =>
+        order.id === updatedOrder.id ? response.data.data : order
+      );
+      setOrders(updatedOrders);
+      setFilteredOrders(updatedOrders);
+
+      toast.success("تم التعديل بنجاح!"); // عرض رسالة نجاح
+    } catch (error) {
+      console.error("Error updating order:", error);
+      toast.error("فشل في تعديل الطلب. يرجى المحاولة مرة أخرى."); // عرض رسالة خطأ
+    }
   };
 
+  // تغيير الصفحة
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
@@ -116,7 +115,10 @@ const Dashboard = () => {
   );
 
   return (
-    <div dir="rtl" className="min-h-[86vh] bg-gray-100 flex flex-col lg:w-[100%]">
+    <div
+      dir="rtl"
+      className="min-h-[86vh] bg-gray-100 flex flex-col lg:w-[100%]"
+    >
       <Header />
       <div className="flex-grow p-4">
         <div className="mb-4">
@@ -129,16 +131,24 @@ const Dashboard = () => {
           />
         </div>
         <FilterSection onFilterChange={handleFilterChange} />
-        <OrdersTable
-          orders={currentOrders}
-          onEditOrder={handleEditOrder}
-          onViewDetails={handleViewDetails}
-        />
-        <Pagination
-          currentPage={currentPage}
-          totalPages={Math.ceil(filteredOrders.length / ordersPerPage)}
-          onPageChange={handlePageChange}
-        />
+        {loading ? (
+          <div className="flex justify-center items-center h-64">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#4CAF50]"></div>
+          </div>
+        ) : (
+          <>
+            <OrdersTable
+              orders={currentOrders}
+              onEditOrder={handleEditOrder}
+              onViewDetails={handleViewDetails}
+            />
+            <Pagination
+              currentPage={currentPage}
+              totalPages={Math.ceil(filteredOrders.length / ordersPerPage)}
+              onPageChange={handlePageChange}
+            />
+          </>
+        )}
       </div>
       <ReusablePopup
         isOpen={!!selectedOrder}

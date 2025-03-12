@@ -11,7 +11,7 @@ import Products from "./pages/Products/Product.jsx";
 import Join from "./pages/Join/Join.jsx";
 import Partner from "./pages/Partner/Partner.jsx";
 import DashboardLayOut from "./Components/DashboardLayOut.jsx";
-
+import InvestmentForm from "./pages/Investment/InvestmentForm.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,6 +24,7 @@ const router = createBrowserRouter([
       { path: "/products", element: <Products /> },
       { path: "/join", element: <Join /> },
       { path: "/partner", element: <Partner /> },
+      { path: "/investment", element: <InvestmentForm /> },
     ],
   },
   {
