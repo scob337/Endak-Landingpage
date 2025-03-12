@@ -12,7 +12,9 @@ const OrdersTable = ({ orders, onEditOrder, onViewDetails }) => {
             <th className="py-3 px-4 border-b w-4/12 whitespace-nowrap">
               اسم المستثمر
             </th>
-            <th className="py-3 px-4 border-b w-[300px] whitespace-nowrap"> {/* هنا التعديل */}
+            <th className="py-3 px-4 border-b w-[300px] whitespace-nowrap">
+              {" "}
+              {/* هنا التعديل */}
               الحالة
             </th>
             <th className="py-3 px-4 border-b w-2/12 whitespace-nowrap">
@@ -30,9 +32,11 @@ const OrdersTable = ({ orders, onEditOrder, onViewDetails }) => {
                 className="py-3 px-4 border-b text-center cursor-pointer text-blue-500 hover:underline whitespace-nowrap"
                 onClick={() => onViewDetails(order)}
               >
-                {order.name}
+                {order.fullName}
               </td>
-              <td className="py-3 px-4 border-b text-center whitespace-nowrap w-[300px]"> {/* هنا التعديل */}
+              <td className="py-3 px-4 border-b text-center whitespace-nowrap w-[300px]">
+                {" "}
+                {/* هنا التعديل */}
                 <span
                   className={`px-5 py-2 rounded-4xl text-[18px] ${
                     order.status === "pending"

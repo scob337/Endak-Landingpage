@@ -12,23 +12,23 @@ import axiosInstance from "../../URL/axiosConfig";
 import { Investment } from "../../URL/URL";
 
 const Dashboard = () => {
-  const [orders, setOrders] = useState([]); 
-  const [filteredOrders, setFilteredOrders] = useState([]); 
-  const [selectedOrder, setSelectedOrder] = useState(null); 
-  const [isEditMode, setIsEditMode] = useState(false); 
-  const [currentPage, setCurrentPage] = useState(1); 
-  const [searchQuery, setSearchQuery] = useState(""); 
-  const [loading, setLoading] = useState(true); 
-  const ordersPerPage = 7; 
+  const [orders, setOrders] = useState([]);
+  const [filteredOrders, setFilteredOrders] = useState([]);
+  const [selectedOrder, setSelectedOrder] = useState(null);
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [loading, setLoading] = useState(true);
+  const ordersPerPage = 7;
 
-  
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axiosInstance.get(Investment); 
-        const data = response.data.data; 
+        const response = await axiosInstance.get(Investment);
+        const data = response.data.data;
+        console.log(data);
         setOrders(data);
-        setFilteredOrders(data); 
+        setFilteredOrders(data);
       } catch (error) {
         console.error("Error fetching orders:", error);
         toast.error("فشل في جلب البيانات. يرجى المحاولة مرة أخرى."); // عرض رسالة خطأ
