@@ -107,11 +107,11 @@ const StockStatus = () => {
           ((stockData.soldShares + stockData.reservedShares) /
             stockData.totalShares) *
           100
-        ).toFixed(0)}
+        ).toFixed(0) || 0}
         % من الأسهم تم بيعها أو حجزها!
         <br />⏳ تبقى{" "}
         <CountUp
-          end={stockData.availableShares}
+          end={stockData.availableShares || 0}
           duration={3}
           separator=","
         />{" "}

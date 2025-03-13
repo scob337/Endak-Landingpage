@@ -1,8 +1,8 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { FaTimes, FaHome, FaCalendar } from "react-icons/fa";
+import { FaTimes, FaHome, FaUser } from "react-icons/fa";
 import { IoIosLogOut } from "react-icons/io";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
 import Logo from "../../assets/images/Logo.png";
 import { useSidebar } from "../../Context/SidebarContext";
@@ -15,7 +15,7 @@ const sidebarLinks = [
     link: "/dashboard",
   },
   {
-    icon: FaCalendar,
+    icon: FaUser,
     text: "الملف الشخصي",
     link: "/dashboard/profile",
   },
@@ -30,12 +30,18 @@ const sidebarLinks = [
 ];
 
 // مكون الرابط الفرعي
-const SidebarLink = ({ link, isHovered, navigate }) => {
+const SidebarLink = ({ link, isHovered, navigate, isActive }) => {
   return (
     <li>
       <button
         type="button"
-        className="w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 font-semibold text-gray-800 rounded-lg hover:bg-green-500 hover:text-white focus:bg-green-50 focus:outline-none dark:bg-neutral-800 dark:hover:bg-green-900 dark:focus:bg-green-900 dark:text-neutral-200"
+        className={`w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 font-semibold rounded-lg transition-all 
+          ${
+            isActive
+              ? "bg-green-500 text-white"
+              : "text-gray-800 hover:bg-green-500 hover:text-white"
+          } 
+          dark:bg-neutral-800 dark:hover:bg-green-900 dark:text-neutral-200`}
         onClick={() => {
           if (link.action) {
             link.action(navigate);
@@ -45,12 +51,12 @@ const SidebarLink = ({ link, isHovered, navigate }) => {
         }}
       >
         <div className="min-w-[1rem] flex items-center justify-center">
-          <link.icon className="size-4" />
+          <link.icon className="size-6" />
         </div>
         <span
-          className={`flex-1 overflow-hidden whitespace-nowrap ${
+          className={`flex-1 overflow-hidden whitespace-nowrap transition-opacity duration-300 ${
             isHovered ? "opacity-100" : "opacity-0"
-          } transition-opacity duration-300`}
+          }`}
         >
           {link.text}
         </span>
@@ -69,13 +75,15 @@ SidebarLink.propTypes = {
   }).isRequired,
   isHovered: PropTypes.bool.isRequired,
   navigate: PropTypes.func.isRequired,
+  isActive: PropTypes.bool.isRequired,
 };
 
 // مكون الـ Sidebar الرئيسي
 const Sidebar = () => {
   const [isHovered, setIsHovered] = useState(false);
   const { toggleSidebar } = useSidebar();
-  const navigate = useNavigate(); // استدعاء useNavigate
+  const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <div
@@ -114,6 +122,7 @@ const Sidebar = () => {
                 link={link}
                 isHovered={isHovered}
                 navigate={navigate}
+                isActive={location.pathname === link.link}
               />
             ))}
           </ul>

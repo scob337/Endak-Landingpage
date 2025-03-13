@@ -5,6 +5,7 @@ import axiosInstance from "../../URL/axiosConfig";
 import Status from "./Status";
 import Counter from "./Main/Counter";
 import { APIURL } from "../../URL/URL";
+import Header from "./Header";
 
 const ProfileForm = () => {
   
@@ -63,6 +64,9 @@ const ProfileForm = () => {
       dir="rtl"
       className="lg:w-[88%] text-right sm:w-[88%] w-full mx-auto shadow-2xl p-4 rounded-xl h-fit self-center dark:bg-gray-800/40"
     >
+      <Header />
+      <br />
+      <br />
       <h1 className="lg:text-3xl text-center md:text-2xl text-xl font-serif font-extrabold mb-2 dark:text-white">
         تحديث البيانات الشخصية
       </h1>
@@ -139,7 +143,7 @@ const ProfileForm = () => {
           )}
         </div>
 
-        <div className="w-full rounded-lg bg-blue-500 mt-4 text-white text-lg font-semibold">
+        <div className="w-full rounded-lg bg-green-500 mt-4 text-white text-lg font-semibold">
           <button type="submit" disabled={isLoading} className="w-full p-4">
             {isLoading ? "جاري التحديث..." : "تحديث البيانات"}
           </button>

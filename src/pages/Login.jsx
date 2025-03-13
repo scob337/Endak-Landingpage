@@ -37,20 +37,21 @@ const LoginForm = () => {
 
   return (
     <div className="h-screen w-full flex justify-center text-right items-center dark:bg-gray-900">
-      <div className="grid gap-8">
+      <div className="grid gap-8 w-full lg:w-[70%] xl:w-[50%] ">
         <div className="bg-gradient-to-r from-green-400 to-green-500 rounded-[26px] m-4">
           <div className="border-[5px] border-transparent rounded-[20px] dark:bg-gray-900 bg-white shadow-lg p-3 m-2">
             <h1 className="pt-8 pb-6 font-bold dark:text-gray-400 text-5xl text-center max-md:text-[24px] max-md:font-bold">
               تسجيل دخول
             </h1>
-            <form onSubmit={handleLogin} className="space-y-4 w-[90%]">
-              <div>
+            <form onSubmit={handleLogin} className="space-y-8 w-full h-[100%]">
+              <div className="w-full flex flex-col gap-2">
                 <label
                   htmlFor="email"
                   className="mb-2 dark:text-gray-400 text-lg"
                 >
                   البريد الالكتروني
                 </label>
+
                 <input
                   id="email"
                   className="border text-right  p-3 dark:bg-indigo-700 dark:text-gray-300 dark:border-gray-700 shadow-md placeholder:text-base focus:scale-105 ease-in-out duration-300 border-gray-300 rounded-lg w-full"
@@ -62,7 +63,7 @@ const LoginForm = () => {
                   disabled={loading} // ✅ تعطيل الحقل أثناء اللودينج
                 />
               </div>
-              <div className="w-full">
+              <div className="w-full flex flex-col gap-2">
                 <label
                   htmlFor="password"
                   className="mb-2 dark:text-gray-400 text-lg"
