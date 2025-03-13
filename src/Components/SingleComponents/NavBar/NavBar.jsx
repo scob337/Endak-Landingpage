@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../../../assets/images/Logo.png";
 
@@ -11,7 +11,6 @@ const Links = [
   { name: "انضم كشريك تجاري", href: "/partner" },
   { name: " تقديم طلب استثمار", href: "/investment" },
   { name: "تواصل معنا", href: "/contact" },
-  { name: " لوحة التحكم", href: "/dashboard" },
 ];
 
 const NavBar = () => {
@@ -20,7 +19,9 @@ const NavBar = () => {
 
   // دالة لفحص ما إذا كان الرابط هو الرابط الحالي
   const isActive = (href) => location.pathname === href;
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
   return (
     <nav
       className="bg-white mb-10 dark:bg-gray-900  sticky  w-full

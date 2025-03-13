@@ -39,11 +39,11 @@ const LoginForm = () => {
     <div className="h-screen w-full flex justify-center text-right items-center dark:bg-gray-900">
       <div className="grid gap-8">
         <div className="bg-gradient-to-r from-green-400 to-green-500 rounded-[26px] m-4">
-          <div className="border-[20px] border-transparent rounded-[20px] dark:bg-gray-900 bg-white shadow-lg p-10 m-2">
-            <h1 className="pt-8 pb-6 font-bold dark:text-gray-400 text-5xl text-center">
+          <div className="border-[5px] border-transparent rounded-[20px] dark:bg-gray-900 bg-white shadow-lg p-3 m-2">
+            <h1 className="pt-8 pb-6 font-bold dark:text-gray-400 text-5xl text-center max-md:text-[24px] max-md:font-bold">
               تسجيل دخول
             </h1>
-            <form onSubmit={handleLogin} className="space-y-4 ">
+            <form onSubmit={handleLogin} className="space-y-4 w-[90%]">
               <div>
                 <label
                   htmlFor="email"
@@ -53,7 +53,7 @@ const LoginForm = () => {
                 </label>
                 <input
                   id="email"
-                  className="border text-right p-3 dark:bg-indigo-700 dark:text-gray-300 dark:border-gray-700 shadow-md placeholder:text-base focus:scale-105 ease-in-out duration-300 border-gray-300 rounded-lg w-full"
+                  className="border text-right  p-3 dark:bg-indigo-700 dark:text-gray-300 dark:border-gray-700 shadow-md placeholder:text-base focus:scale-105 ease-in-out duration-300 border-gray-300 rounded-lg w-full"
                   type="email"
                   placeholder="البريد الالكتروني"
                   required
@@ -62,7 +62,7 @@ const LoginForm = () => {
                   disabled={loading} // ✅ تعطيل الحقل أثناء اللودينج
                 />
               </div>
-              <div>
+              <div className="w-full">
                 <label
                   htmlFor="password"
                   className="mb-2 dark:text-gray-400 text-lg"
@@ -71,7 +71,7 @@ const LoginForm = () => {
                 </label>
                 <input
                   id="password"
-                  className="border text-right p-3 shadow-md dark:bg-indigo-700 dark:text-gray-300 dark:border-gray-700 placeholder:text-base focus:scale-105 ease-in-out duration-300 border-gray-300 rounded-lg w-full"
+                  className="border  text-right p-3 shadow-md dark:bg-indigo-700 dark:text-gray-300 dark:border-gray-700 placeholder:text-base focus:scale-105 ease-in-out duration-300 border-gray-300 rounded-lg w-full"
                   type="password"
                   placeholder="الرقم السري"
                   required

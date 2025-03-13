@@ -17,6 +17,7 @@ import Dashboard from "./pages/Dashboard/Main/Main.jsx";
 import ProfileForm from "./pages/Dashboard/Profile.jsx";
 import ProtectedRoute from "./pages/Dashboard/ProtectedRoute.jsx";
 import LoginForm from "./pages/Login.jsx";
+import { ToastContainer } from "react-toastify";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,7 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <SidebarProvider>
       <RouterProvider router={router} />
+      <ToastContainer />
     </SidebarProvider>
   </StrictMode>
 );

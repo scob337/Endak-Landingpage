@@ -99,12 +99,15 @@ const Contact = () => {
 
           {/* الاسم */}
           <div className="relative mb-4">
-            <label htmlFor="name" className="leading-7 text-sm text-gray-600">
+            <label
+              htmlFor="fullName"
+              className="leading-7 text-sm text-gray-600"
+            >
               الاسم
             </label>
             <input
               type="text"
-              id="name"
+              id="fullName"
               disabled={isLoading}
               {...register("fullName", { required: "هذا الحقل مطلوب" })}
               className="w-full bg-white rounded border border-gray-300 focus:border-[#00be3c] text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"

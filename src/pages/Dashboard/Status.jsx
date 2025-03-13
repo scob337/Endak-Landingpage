@@ -14,7 +14,6 @@ const Status = () => {
     try {
       const response = await axiosInstance.get(GetStock);
       const data = response.data.data;
-      console.log(data);
       setStockData({
         totalShares: data.totalShares,
         soldShares: data.soldShares,
