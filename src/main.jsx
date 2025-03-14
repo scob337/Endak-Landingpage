@@ -18,6 +18,7 @@ import ProfileForm from "./pages/Dashboard/Profile.jsx";
 import ProtectedRoute from "./pages/Dashboard/ProtectedRoute.jsx";
 import LoginForm from "./pages/Login.jsx";
 import { ToastContainer } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,12 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <SidebarProvider>
+      <Helmet>
+        <meta
+          name="google-site-verification"
+          content="YydQ9hX70bm1LAgs5Yu_1Jlibcy-swo-98GIPHTWI5g"
+        />
+      </Helmet>
       <RouterProvider router={router} />
       <ToastContainer />
     </SidebarProvider>
